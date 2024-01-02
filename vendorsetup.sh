@@ -18,6 +18,9 @@ git clone https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 har
 # Kernel Sources
 git clone https://github.com/KDEFFALT/fog-kernel -b artifact-r2 kernel/xiaomi/fog
 
+# Bengal HALs
+git clone https://github.com/KDEFFALT/hardware_qcom-caf_bengal -b eleven hardware/qcom-caf/bengal
+
 # Vendor Sources
 git clone https://github.com/KDEFFALT/vendor_xiaomi_fog -b thirteen vendor/xiaomi/fog
 
