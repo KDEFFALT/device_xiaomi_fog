@@ -16,6 +16,6 @@ git clone https://github.com/KDEFFALT/fog-kernel -b ArtifactOSS kernel/xiaomi/fo
 git clone https://github.com/KDEFFALT/hardware_qcom-caf_bengal -b eleven hardware/qcom-caf/bengal
 
 # Vendor Sources
-git clone https://github.com/KDEFFALT/vendor_xiaomi_fog -b thirteen vendor/xiaomi/fog
+git clone https://github.com/KDEFFALT/vendor_xiaomi_fog -b eleven vendor/xiaomi/fog
 
 echo -e "${color}Finished sync!${end}"
