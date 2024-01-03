@@ -227,6 +227,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2023-07-01
 
+# SELINUX NEVERALLOW
+SELINUX_IGNORE_NEVERALLOWS=true
+
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
