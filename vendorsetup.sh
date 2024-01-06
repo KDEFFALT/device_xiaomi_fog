@@ -11,7 +11,7 @@ rm -rf hardware/google/pixel/kernel_headers/Android.bp
 
 # Remove prebuilt Launcher3 and replace with fixed one
 rm -rf packages/apps/Launcher3
-git clone https://github.com/KDEFFALT/android_packages_apps_Launcher3 -b tiramisu packages/apps/Launcher3
+git clone https://github.com/ClownUI/packages_apps_Launcher3 -b tiramisu packages/apps/Launcher3
 
 # Remove included hardware_xiaomi
 rm -rf hardware/xiaomi
