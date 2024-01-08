@@ -1,8 +1,8 @@
 cc_binary {
-    name: "android.hardware.lights-service.xiaomi_bengal",
+    name: "android.hardware.lights-service.fog",
     relative_install_path: "hw",
-    init_rc: ["lights-xiaomi_bengal.rc"],
-    vintf_fragments: ["lights-xiaomi_bengal.xml"],
+    init_rc: ["lights-fog.rc"],
+    vintf_fragments: ["lights-fog.xml"],
     vendor: true,
     shared_libs: [
         "libbase",

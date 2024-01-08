@@ -12,6 +12,9 @@ rm -rf hardware/google/pixel/kernel_headers/Android.bp
 # Remove included hardware_xiaomi
 rm -rf hardware/xiaomi
 
+# Remove megvii libs on hardware/xiaomi to avoid conflicts
+rm -rf hardware/xiaomi/megvii
+
 # clone lineage os hardware_xiaomi
 git clone https://github.com/LineageOS/android_hardware_xiaomi -b lineage-18.1 hardware/xiaomi
 
