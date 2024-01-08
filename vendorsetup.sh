@@ -13,12 +13,12 @@ rm -rf hardware/google/pixel/kernel_headers/Android.bp
 rm -rf hardware/xiaomi
 
 # clone lineage os hardware_xiaomi
-git clone https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
+git clone https://github.com/LineageOS/android_hardware_xiaomi -b lineage-18.1 hardware/xiaomi
 
 # Kernel Sources
-git clone https://github.com/KDEFFALT/fog-kernel -b artifact-r2 kernel/xiaomi/fog
+git clone https://github.com/KDEFFALT/fog-kernel -b ArtifactOSS kernel/xiaomi/fog
 
 # Vendor Sources
-git clone https://github.com/KDEFFALT/vendor_xiaomi_fog -b thirteen vendor/xiaomi/fog
+git clone https://github.com/KDEFFALT/vendor_xiaomi_fog -b eleven vendor/xiaomi/fog
 
 echo -e "${color}Finished sync!${end}"

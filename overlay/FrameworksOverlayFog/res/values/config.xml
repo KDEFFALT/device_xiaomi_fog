@@ -18,9 +18,9 @@
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
+     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
-    <bool name="config_automatic_brightness_available">true</bool>
+     <bool name="config_automatic_brightness_available">true</bool>
 
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
@@ -32,9 +32,6 @@
     <!-- Control whether the always on display mode is enabled by default. This value will be used
          during initialization when the setting is still null. -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
-
-    <!-- Auto-brightness sensor type string -->
-    <string name="config_displayLightSensorType">"android.sensor.light"</string>
 
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state.
@@ -121,64 +118,64 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>18</item>
-        <item>25</item>
-        <item>31</item>
-        <item>77</item>
-        <item>107</item>
-        <item>138</item>
-        <item>184</item>
-        <item>266</item>
-        <item>363</item>
-        <item>445</item>
-        <item>496</item>
-        <item>502</item>
-        <item>502</item>
-        <item>502</item>
-        <item>507</item>
-        <item>507</item>
-        <item>512</item>
-        <item>512</item>
-        <item>512</item>
-        <item>517</item>
-        <item>517</item>
-        <item>522</item>
-        <item>527</item>
-        <item>527</item>
-        <item>527</item>
-        <item>542</item>
-        <item>553</item>
-        <item>563</item>
-        <item>573</item>
-        <item>583</item>
-        <item>594</item>
-        <item>604</item>
-        <item>609</item>
-        <item>624</item>
-        <item>629</item>
-        <item>640</item>
+        <item>38</item>
+        <item>69</item>
+        <item>125</item>
+        <item>190</item>
+        <item>250</item>
+        <item>270</item>
+        <item>380</item>
+        <item>485</item>
         <item>655</item>
-        <item>665</item>
-        <item>670</item>
-        <item>686</item>
-        <item>696</item>
-        <item>701</item>
-        <item>716</item>
-        <item>727</item>
-        <item>737</item>
-        <item>865</item>
-        <item>1003</item>
-        <item>1136</item>
-        <item>1269</item>
-        <item>1382</item>
-        <item>1535</item>
-        <item>1638</item>
-        <item>1714</item>
-        <item>2047</item>
-        <item>2047</item>
-        <item>2047</item>
-        <item>2047</item>
-        <item>2047</item>
+        <item>680</item>
+        <item>680</item>
+        <item>680</item>
+        <item>690</item>
+        <item>690</item>
+        <item>690</item>
+        <item>700</item>
+        <item>700</item>
+        <item>700</item>
+        <item>710</item>
+        <item>710</item>
+        <item>720</item>
+        <item>720</item>
+        <item>720</item>
+        <item>730</item>
+        <item>730</item>
+        <item>730</item>
+        <item>750</item>
+        <item>760</item>
+        <item>780</item>
+        <item>780</item>
+        <item>790</item>
+        <item>800</item>
+        <item>810</item>
+        <item>830</item>
+        <item>840</item>
+        <item>850</item>
+        <item>855</item>
+        <item>860</item>
+        <item>870</item>
+        <item>890</item>
+        <item>900</item>
+        <item>910</item>
+        <item>920</item>
+        <item>940</item>
+        <item>950</item>
+        <item>1120</item>
+        <item>1300</item>
+        <item>1520</item>
+        <item>1730</item>
+        <item>1950</item>
+        <item>2200</item>
+        <item>2450</item>
+        <item>2530</item>
+        <item>3140</item>
+        <item>3520</item>
+        <item>3550</item>
+        <item>3640</item>
+        <item>4095</item>
     </integer-array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
@@ -192,66 +189,66 @@
         This array should have size one greater than the size of the config_autoBrightnessLevels
         array. The brightness values must be non-negative and non-decreasing. This must be
         overridden in platform specific overlays -->
-    <array name="config_autoBrightnessDisplayValuesNits">
-        <item>3.5</item>
-        <item>4.8</item>
-        <item>6.0</item>
-        <item>15.0</item>
-        <item>21.0</item>
-        <item>27.0</item>
-        <item>36.0</item>
-        <item>52.0</item>
-        <item>71.0</item>
-        <item>87.0</item>
-        <item>97.0</item>
-        <item>98.0</item>
-        <item>98.0</item>
-        <item>98.0</item>
-        <item>99.0</item>
-        <item>99.0</item>
-        <item>100.0</item>
-        <item>100.0</item>
-        <item>100.0</item>
-        <item>101.0</item>
-        <item>101.0</item>
-        <item>102.0</item>
-        <item>103.0</item>
-        <item>103.0</item>
-        <item>103.0</item>
-        <item>106.0</item>
-        <item>108.0</item>
-        <item>110.0</item>
-        <item>112.0</item>
-        <item>114.0</item>
-        <item>116.0</item>
-        <item>118.0</item>
-        <item>119.0</item>
-        <item>122.0</item>
-        <item>123.0</item>
-        <item>125.0</item>
-        <item>128.0</item>
-        <item>130.0</item>
-        <item>131.0</item>
-        <item>134.0</item>
-        <item>136.0</item>
-        <item>137.0</item>
-        <item>140.0</item>
-        <item>142.0</item>
-        <item>144.0</item>
-        <item>169.0</item>
-        <item>196.0</item>
-        <item>222.0</item>
-        <item>248.0</item>
-        <item>270.0</item>
-        <item>300.0</item>
-        <item>320.0</item>
-        <item>335.0</item>
-        <item>400.0</item>
-        <item>400.0</item>
-        <item>400.0</item>
-        <item>400.0</item>
-        <item>400.0</item>
-    </array>
+    <integer-array name="config_autoBrightnessDisplayValuesNits">
+        <item>5</item>
+        <item>5</item>
+        <item>6</item>
+        <item>15</item>
+        <item>21</item>
+        <item>27</item>
+        <item>36</item>
+        <item>52</item>
+        <item>71</item>
+        <item>87</item>
+        <item>97</item>
+        <item>98</item>
+        <item>98</item>
+        <item>98</item>
+        <item>99</item>
+        <item>99</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>101</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>103</item>
+        <item>103</item>
+        <item>106</item>
+        <item>108</item>
+        <item>110</item>
+        <item>112</item>
+        <item>114</item>
+        <item>116</item>
+        <item>118</item>
+        <item>119</item>
+        <item>122</item>
+        <item>123</item>
+        <item>125</item>
+        <item>128</item>
+        <item>130</item>
+        <item>131</item>
+        <item>134</item>
+        <item>136</item>
+        <item>137</item>
+        <item>140</item>
+        <item>142</item>
+        <item>144</item>
+        <item>169</item>
+        <item>196</item>
+        <item>222</item>
+        <item>248</item>
+        <item>270</item>
+        <item>300</item>
+        <item>320</item>
+        <item>335</item>
+        <item>407</item>
+        <item>472</item>
+        <item>500</item>
+        <item>530</item>
+        <item>530</item>
+    </integer-array>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
         The N entries of this array define N + 1 control points as follows:
@@ -321,7 +318,7 @@
         <item>1500</item>
         <item>1700</item>
         <item>1900</item>
-        <item>2000</item>
+        <item>2200</item>
         <item>2500</item>
         <item>3000</item>
         <item>3500</item>
@@ -346,10 +343,10 @@
         Note that this value should *not* reflect the maximum brightness value for any high
         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
         This array should be equal in size to config_screenBrightnessBacklight -->
-    <array name="config_screenBrightnessNits">
+    <integer-array name="config_screenBrightnessNits">
         <item>2</item>
-        <item>400</item>
-    </array>
+        <item>455</item>
+    </integer-array>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
         percent. The length of this array is assumed to be one greater than
@@ -427,19 +424,19 @@
 
     <!-- The maximum range of gamma adjustment possible using the screen
         auto-brightness adjustment setting. -->
-    <fraction name="config_autoBrightnessAdjustmentMaxGamma">100.0%</fraction>
+    <fraction name="config_autoBrightnessAdjustmentMaxGamma">300%</fraction>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
         for debouncing the light sensor.  Different constants are used to debounce the light sensor
         when adapting to brighter or darker environments.  This parameter controls how quickly
         brightness changes occur in response to an observed change in light level that exceeds the
         hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">102</integer>
+    <integer name="config_screenBrightnessSettingDefault">184</integer>
 
     <!-- Maximum screen brightness allowed by the power manager.
         The user is forbidden from setting the brightness above this level. -->
@@ -447,10 +444,10 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">8</integer>
+    <integer name="config_screenBrightnessSettingMinimum">2</integer>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">13</integer>
+    <integer name="config_screenBrightnessDim">6</integer>
 
     <!-- The bounding path of the cutout region of the main built-in display.
          Must either be empty if there is no cutout region, or a string that is parsable by
@@ -469,7 +466,7 @@
                 <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string translatable="false" name="config_mainBuiltInDisplayCutout">M 0,0 H -64 V 60 H 64 V 0 H 0 Z</string>
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">M 0,0 H -40 V 49 H 40 V 0 H 0 Z</string>
 
     <!-- Whether the display cutout region of the main built-in display should be forced to
         black in software (to avoid aliasing or emulate a cutout that is not physically existent).
@@ -670,6 +667,34 @@
     <!-- Whether or not wcg mode should be enabled on this device -->
     <bool name="config_enableWcgMode">true</bool>
 
+    <!-- The default journal mode to use use when Write-Ahead Logging is not active.
+         Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
+         PERSIST may improve performance by reducing how often journal blocks are
+         reallocated (compared to truncation) resulting in better data block locality
+         and less churn of the storage media.
+         The PERSIST mode results in data persisting in the journal beyond the life of
+         a transaction, so it interacts poorly with SECURE_DELETE. -->
+    <string name="db_default_journal_mode" translatable="false">MEMORY</string>
+
+    <!-- The database synchronization mode when using the default journal mode.
+         FULL is safest and preserves durability at the cost of extra fsyncs.
+         NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
+         integrity although there is a small chance that an error might go unnoticed.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_default_sync_mode" translatable="false">OFF</string>
+
+    <!-- The database synchronization mode when using Write-Ahead Logging.
+         From https://www.sqlite.org/pragma.html#pragma_synchronous:
+         WAL mode is safe from corruption with synchronous=NORMAL, and probably DELETE mode is safe
+         too on modern filesystems. WAL mode is always consistent with synchronous=NORMAL, but WAL
+         mode does lose durability. A transaction committed in WAL mode with
+         synchronous=NORMAL might roll back following a power loss or system crash.
+         Transactions are durable across application crashes regardless of the synchronous setting
+         or journal mode. The synchronous=NORMAL setting is a good choice for most applications
+         running in WAL mode.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_wal_sync_mode" translatable="false">OFF</string>
+
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
@@ -700,6 +725,9 @@
     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
     <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
     <string name="config_SmartChargingResumeValue" translatable="false">0</string>
+
+    <!-- The max scale for the wallpaper when it's zoomed in -->
+    <item name="config_wallpaperMaxScale" format="float" type="dimen">1</item>
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -748,17 +776,6 @@
         <item>com.discord</item>
         <item>us.zoom.videomeetings</item>
      </string-array>
-
-    <!-- The list of package IDs that are allowed to use aux cameras.
-         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
-    <string-array name="config_cameraAuxPackageAllowList" translatable="false">
-        <item>org.codeaurora.snapcam</item>
-        <item>com.android.camera</item>
-        <item>com.google.camera</item>
-        <item>com.xiaomi.cameratest</item>
-	<item>org.lineageos.aperture</item>
-        <item>org.lineageos.aperture.dev</item>
-    </string-array>
 
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
