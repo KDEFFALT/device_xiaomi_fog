@@ -262,7 +262,9 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2022-11-01
 
-
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_fog
+TARGET_RECOVERY_DEVICE_MODULES := libinit_fog
 
 # Sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
