@@ -1,88 +1,173 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2023 Paranoid Android
  *
- * SPDX-License-Identifier: Apache-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-#include <libinit_dalvik_heap.h>
-#include <libinit_variant.h>
+#include <cstdlib>
+#include <fstream>
+#include <string.h>
+#include <unistd.h>
+#include <vector>
 
+#include <android-base/properties.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+#include <sys/sysinfo.h>
+
+#include "property_service.h"
 #include "vendor_init.h"
 
-static const variant_info_t fog_global_info = {
-    .hwc_value = "",
-    .sku_value = "",
+using android::base::GetProperty;
+using std::string;
 
-    .brand = "Redmi",
-    .device = "fog",
-    .marketname = "Redmi 10C",
-    .model = "220333QAG",
-    .build_fingerprint = "Redmi/fog/fog:11/RKQ1.211001.001/V13.0.7.0.RGEMIXM:user/release-keys",
-
-    .nfc = false,
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "odm.",
+    "odm_dlkm.",
+    "product.",
+    "system.",
+    "system_ext.",
+    "vendor.",
+    "vendor_dlkm.",
 };
 
-static const variant_info_t fog_global2_info = {
-    .hwc_value = "",
-    .sku_value = "",
+void property_override(string prop, string value)
+{
+    auto pi = (prop_info*) __system_property_find(prop.c_str());
 
-    .brand = "Redmi",
-    .device = "fog",
-    .marketname = "Redmi 10 Power",
-    .model = "220333QBI",
-    .build_fingerprint = "Redmi/fog_global2/fog:11/RKQ1.211001.001/V13.0.7.0.RGEMIXM:user/release-keys",
+    if (pi != nullptr)
+        __system_property_update(pi, value.c_str(), value.size());
+    else
+        __system_property_add(prop.c_str(), prop.size(), value.c_str(), value.size());
+}
 
-    .nfc = false,
-};
+void load_redmi_fog() {
+    property_override("bluetooth.device.default_name", "Redmi 10C");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "fog");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 10C");
+    property_override("ro.product.model", "220333QAG");
+    property_override("ro.product.mod_device", "fog_global");
+    property_override("ro.product.name", "fog_global");
+    property_override("vendor.usb.product_string", "Redmi 10C");
+}
 
-static const variant_info_t fog_in_info = {
-    .hwc_value = "",
-    .sku_value = "",
+void load_redmi_fog_in() {
+    property_override("bluetooth.device.default_name", "Redmi 10");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "fog");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 10");
+    property_override("ro.product.model", "220333QBI");
+    property_override("ro.product.mod_device", "fog_in");
+    property_override("ro.product.name", "fog_in");
+    property_override("vendor.usb.product_string", "Redmi 10");
+}
 
-    .brand = "Redmi",
-    .device = "fog",
-    .marketname = "Redmi 10",
-    .model = "220333QBI",
-    .build_fingerprint = "Redmi/fog_in/fog:11/RKQ1.211001.001/V13.0.7.0.RGEINXM:user/release-keys",
+void load_redmi_fog_in2() {
+    property_override("bluetooth.device.default_name", "Redmi 10 Power");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "fog");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 10 Power");
+    property_override("ro.product.model", "220333QBI");
+    property_override("ro.product.mod_device", "fog_in2");
+    property_override("ro.product.name", "fog_in2");
+    property_override("vendor.usb.product_string", "Redmi 10 Power");
+}
 
-    .nfc = false,
-};
+void load_redmi_rain() {
+    property_override("bluetooth.device.default_name", "Redmi 10C");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "rain");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 10C");
+    property_override("ro.product.model", "220333QNY");
+    property_override("ro.product.mod_device", "rain_global");
+    property_override("ro.product.name", "rain_global");
+    property_override("vendor.usb.product_string", "Redmi 10C");
+}
 
-static const variant_info_t rain_global_info = {
-    .hwc_value = "",
-    .sku_value = "c3qn",
-
-    .brand = "Redmi",
-    .device = "rain",
-    .marketname = "Redmi 10C",
-    .model = "220333QNY",
-    .build_fingerprint = "Redmi/rain_global/rain:11/RKQ1.211001.001/V13.0.7.0.RGEMIXM:user/release-keys",
-
-    .nfc = true,
-};
-
-static const variant_info_t wind_global_info = {
-    .hwc_value = "",
-    .sku_value = "",
-
-    .brand = "Redmi",
-    .device = "wind",
-    .marketname = "Redmi 10C",
-    .model = "220333QL",
-    .build_fingerprint = "Redmi/wind_global/wind:11/RKQ1.211001.001/V13.0.7.0.RGEMIXM:user/release-keys",
-
-    .nfc = false,
-};
-
-static const std::vector<variant_info_t> variants = {
-    fog_global_info,
-    fog_global2_info,
-    fog_in_info,
-    rain_global_info,
-    wind_global_info,
-};
+void load_redmi_wind() {
+    property_override("bluetooth.device.default_name", "Redmi 10C");
+    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.device", "wind");
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.product.marketname", "Redmi 10C");
+    property_override("ro.product.model", "220333QL");
+    property_override("ro.product.mod_device", "wind_global");
+    property_override("ro.product.name", "wind_global");
+    property_override("vendor.usb.product_string", "Redmi 10C");
+}
 
 void vendor_load_properties() {
-    search_variant(variants);
-    set_dalvik_heap();
+    std::string hwname = GetProperty("ro.boot.hwname", "");
+    if (access("/system/bin/recovery", F_OK) != 0) {
+    if (hwname == "fog_in") {
+        load_redmi_fog_in();
+    } else if (hwname == "fog") {
+        load_redmi_fog();
+    } else if (hwname == "rain") {
+        load_redmi_rain();
+    } else if (hwname == "wind") {
+        load_redmi_wind();
+    } else {
+        load_redmi_fog_in2();
+       }
+    }
+
+    // Set hardware revision
+    property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", "").c_str());
+
+    // Set dalvik heap configuration
+    std::string heapstartsize, heapgrowthlimit, heapsize, heapminfree,
+			heapmaxfree, heaptargetutilization;
+
+    struct sysinfo sys;
+    sysinfo(&sys);
+
+    if (sys.totalram > 5072ull * 1024 * 1024) {
+        // from - phone-xhdpi-6144-dalvik-heap.mk
+        heapstartsize = "16m";
+        heapgrowthlimit = "256m";
+        heapsize = "512m";
+        heaptargetutilization = "0.5";
+        heapminfree = "8m";
+        heapmaxfree = "32m";
+    } else if (sys.totalram > 3072ull * 1024 * 1024) {
+        // from - phone-xhdpi-4096-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.6";
+        heapminfree = "8m";
+        heapmaxfree = "16m";
+    } else {
+        // from - phone-xhdpi-2048-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.75";
+        heapminfree = "512k";
+        heapmaxfree = "8m";
+    }
+
+    property_override("dalvik.vm.heapstartsize", heapstartsize);
+    property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_override("dalvik.vm.heapsize", heapsize);
+    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
+    property_override("dalvik.vm.heapminfree", heapminfree);
+    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
